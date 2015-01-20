@@ -1,0 +1,18 @@
+http://api.openweathermap.org/data/2.5/group?id=763166,3099434,3083829,3102014,776069,765876,756135,3080165,3093133,3088171,769250,3081368,3090048,3096472,759734,3094802&units=metric
+
+3083829, zach-pom
+3099434, pomorskie
+763166, war-maz
+776069, podlaskie
+3080165, lubuskie
+3088171, wlkp
+3102014, Bydgoszcz
+3093133,Lodzkie
+756135, Mazowieckie
+3081368, Dolnosl
+3090048, Opolskie
+3096472, Slaskie
+3094802, Malopolskie
+769250, Swietokrzyskie
+759734, Podkarpakie
+765876, Lubelskie
