@@ -25,6 +25,8 @@ from PyQt4.QtGui import QAction, QIcon
 # Initialize Qt resources from file resources.py
 from qgis.core import *
 from qgis.gui import *
+from qgis.utils import iface
+from PyQt4 import QtGui, QtCore
 import qgis.utils
 import resources_rc
 import urllib2
@@ -243,6 +245,15 @@ class Wtyczka:
 				provider.changeAttributeValues({feature.id() : {provider.fieldNameMap()["V wiatru"] : data["list"][feature.id()]["wind"]["speed"]}})
 				provider.changeAttributeValues({feature.id() : {provider.fieldNameMap()["Kierunek w"] : data["list"][feature.id()]["wind"]["deg"]}})
 				provider.changeAttributeValues({feature.id() : {provider.fieldNameMap()["Chmurki"] : data["list"][feature.id()]["weather"][0]["description"]}})
+				a=qgis.gui.QgsTextAnnotationItem(iface.mapCanvas())
+				napis = str(data["list"][feature.id()]["main"]["temp"])
+				napis = napis + " "+unichr(176)+"C"
+				a.setDocument(QtGui.QTextDocument(napis))
+				a.setMapPosition(feature.geometry().centroid().asPoint())
+				a.setFrameSize(QtCore.QSizeF(60,20))
+				iface.mapCanvas().refresh()
+			
+			
 			shape.commitChanges()
 			QgsMapLayerRegistry.instance().addMapLayer(shape)
 			#print shape.dataProvider().capabilitiesString()
